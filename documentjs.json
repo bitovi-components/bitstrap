@@ -1,0 +1,18 @@
+{
+    "sites": {
+        "docs": {
+            "glob" : {
+              "pattern": "./**/*.{js,md}",
+              "ignore": "./{bower_components,node_modules,docs,dist}/**/*.*"
+            },
+            "dest" : "./docs",
+            "parent" : "bitstrap",
+            "package":{
+                "repository": {
+                    "github": "https://github.com/bitovi-components/bit-strap"
+                },
+                "version":"0.0.1"
+            }
+        }
+    }
+}
