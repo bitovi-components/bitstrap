@@ -11,12 +11,12 @@
 */
 
 //Deps
-var can = require('can'),
-    itemTemplate = require('./itemTemplate.stache'),
-    buttonTemplate = require('./buttonTemplate.stache');
-require('can/map/define/define');
+import can from 'can';
+import itemTemplate from './itemTemplate.stache!';
+import buttonTemplate from './buttonTemplate.stache!';
+import 'can/map/define/define';
 
-var ViewModel = can.Map.extend({
+export default can.Map.extend({
     define: {
         
         /**
@@ -37,6 +37,16 @@ var ViewModel = can.Map.extend({
             value: false,
             type: 'boolean'
         },
+
+        /**
+         * @property {string} dropdown.scope.buttonName buttonName
+         * @description The trigger label.
+         * @option {string} Default is empty string.
+         */
+        buttonName: {
+            value: '',
+            type: 'string'
+        },
         
         /**
          * @property {function} dropdown.scope.itemRenderer itemRenderer
@@ -56,16 +66,16 @@ var ViewModel = can.Map.extend({
          */
         buttonRenderer: {
             value: function () {
-                return itemTemplate;
+                return buttonTemplate;
             }
         },
 
         /**
-         * @property {string} dropdown.scope.dropdownName dropdownName
+         * @property {string} dropdown.scope.dropdownId dropdownId
          * @description The unqiue dropdown id.
          * @option {string} Default is `dropdown<random number>`.
          */
-        dropdownName: {
+        dropdownId: {
             value: function () {
                 return 'dropdown' + Math.floor( Math.random() * 1000000 );
             },
@@ -118,5 +128,3 @@ var ViewModel = can.Map.extend({
     }
 
 });
-
-module.exports = ViewModel;

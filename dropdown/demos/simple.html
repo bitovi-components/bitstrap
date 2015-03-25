@@ -1,0 +1,16 @@
+<script type='text/stache' id="demo" can-autorender>
+  <can-import from="dropdown/dropdown"/>
+  <bitstrap-dropdown items="{items}" button-label="Select Something"></bitstrap-dropdown>
+</script>
+<script src="../node_modules/steal/steal.js" 
+		main="can/view/autorender/">
+        
+    import can from 'can';
+    var items = new can.List([
+        { label: "test" }
+    ]);
+    
+    can.$('#demo').viewModel().attr({
+        items: items
+    });
+</script>

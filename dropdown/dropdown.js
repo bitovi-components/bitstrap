@@ -27,14 +27,16 @@
 *
 * @demo bit-strap.html#dropdown
 */
-var can = require('can');
-var ViewModel = require('./viewmodel.js');
-require('can/view/stache/stache');
+import can from 'can';
+import ViewModel from './viewmodel';
+import 'can/view/stache/stache';
 
-var template = require('./dropdown.stache');
+import template from './dropdown.stache!';
 
-module.exports = can.Component.extend({
+can.Component.extend({
     tag: 'bitstrap-dropdown',
     template: template,
     scope: ViewModel
 });
+
+export default ViewModel;
