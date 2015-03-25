@@ -1,1 +1,1 @@
-<button class="btn btn-link" can-click="toggleDropdown">{{label}}</button>
+<button class="btn btn-link dropdown-menu-item" can-click="toggleDropdown">{{label}}</button>
