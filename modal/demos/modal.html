@@ -1,0 +1,18 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+<script type='text/stache' id="demo" can-autorender>
+  <can-import from="modal/modal"/>
+  <button type="button" can-click="openModal">Open Modal</button>
+  <bitstrap-modal visible="{visible}">Hello World!</bitstrap-modal>
+</script>
+
+<script src="../../node_modules/steal/steal.js" 
+		main="can/view/autorender/">
+    import can from 'can';
+    
+    can.$('#demo').viewModel({
+        visible: false,
+        openModal: function () {
+            this.attr('visible', true);
+        }
+    });
+</script>

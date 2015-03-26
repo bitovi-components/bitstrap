@@ -1,0 +1,22 @@
+<div class="modal" role="dialog" aria-hidden="{{isHidden}}" style="display:{{#visible}}block{{else}}none{{/visible}};">
+    <div class="modal-dialog {{#modalSize}}modal-{{modalSize}}{{/modalSize}}">
+        <div class="modal-content">
+            {{#modalTitle}}
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" can-click="closeModal"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">{{modalTitle}}</h4>
+            </div>
+            {{/modalTitle}}
+            <div class="modal-body">
+                <content></content>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" can-click="closeModal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{{#showBackdrop}}
+<div class="modal-backdrop fade in"></div>
+{{/showBackdrop}}
