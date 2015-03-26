@@ -1,32 +1,20 @@
-/**
- * @module {can.Map} button/ViewModel View Model
- * @parent button
- * @author Curtis Cummings
- *
- * @description View model of the [button] component.
- *
- * @signature
- * var ViewModel = can.Map.extend({});
- *
- */
 import can from 'can';
 import _ from 'lodash';
 import 'can/map/define/';
 
-var TYPES = ["success", "info", "warning", "danger", "primary", "secondary", "tertiary", "link", "default"];
+var TYPES = ['success', 'info', 'warning', 'danger', 'primary', 'secondary', 'tertiary', 'link', 'default'];
 var SIZES = {
-	large: "lg",
+	large: 'lg',
 	default: null,
-	small: "sm",
-	extrasmall: "xs",
-	"extra-small": "xs",
-	"extra_small": "xs"
+	small: 'sm',
+	'extra-small': 'xs'
 };
 
 export default can.Map.extend({
 	define: {
 		/**
 		 * @property {HTMLBoolean} button.viewModel.disabled disabled
+         * @parent button/viewModel
 		 * @description Whether the button is disabled.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
@@ -36,6 +24,7 @@ export default can.Map.extend({
 		},
 		/**
 		 * @property {HTMLBoolean} button.viewModel.submit submit
+         * @parent button/viewModel
 		 * @description Whether the button is disabled.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
@@ -45,7 +34,8 @@ export default can.Map.extend({
 		},
 		/**
 		 * @property {HTMLBoolean} button.viewModel.active active
-		 * @description Whether the button is disabled.
+         * @parent button/viewModel
+		 * @description Whether the button is in an active state.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		active: {
@@ -54,7 +44,8 @@ export default can.Map.extend({
 		},
 		/**
 		 * @property {HTMLBoolean} button.viewModel.block block
-		 * @description Whether the button is disabled.
+         * @parent button/viewModel
+		 * @description Whether the button should be a block level button.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		block: {
@@ -62,38 +53,33 @@ export default can.Map.extend({
 			type: 'htmlbool'
 		},
 		/**
-		 * @property {HTMLBoolean} button.viewModel.wide wide
-		 * @description Whether the button is disabled.
-		 * @option {HTMLBoolean} Defaults to `false`.
+		 * @property {HTMLBoolean} button.viewModel.href href
+         * @parent button/viewModel
+		 * @description The name attribute of the button.
 		 */
-		wide: {
-			value: false,
-			type: 'htmlbool'
-		},
 		name: {
 			value: null
 		},
 		size: {
-				value: null,
-				type: x => SIZES[(x||"").toLowerCase()] || x
+			value: null,
+			type: x => SIZES[(x||'').toLowerCase()] || x
 		},
 		type: {
-				get: function () {
-						return _.find(
-										TYPES, type => this.attr((type || "").toLowerCase())) ||
-								"default";
-				},
-				set: function (type) {
-						if (this.attr("type")) {
-								this.attr(this.attr("type"), false);
-						}
-						this.attr(type, true);
-						return type;
+			get: function () {
+				return _.find(TYPES, type => this.attr((type || '').toLowerCase())) || 'default';
+			},
+			set: function (type) {
+				if (this.attr('type')) {
+						this.attr(this.attr('type'), false);
 				}
+				this.attr(type, true);
+				return type;
+			}
 		},
 		/**
 		 * @property {HTMLBoolean} button.viewModel.wide wide
-		 * @description Whether the button is disabled.
+         * @parent button/viewModel
+		 * @description Makes the button use success styling.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		success: {
@@ -102,7 +88,8 @@ export default can.Map.extend({
 		},
 		/**
 		 * @property {HTMLBoolean} button.viewModel.wide wide
-		 * @description Whether the button is disabled.
+         * @parent button/viewModel
+		 * @description Makes the button use info styling.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		info: {
@@ -111,7 +98,8 @@ export default can.Map.extend({
 		},
 		/**
 		 * @property {HTMLBoolean} button.viewModel.warning warning
-		 * @description Whether the button is disabled.
+         * @parent button/viewModel
+		 * @description Makes the button use warning styling.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		warning: {
@@ -120,7 +108,8 @@ export default can.Map.extend({
 		},
 		/**
 		 * @property {HTMLBoolean} button.viewModel.danger danger
-		 * @description Whether the button is disabled.
+         * @parent button/viewModel
+		 * @description Makes the button use danger styling.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		danger: {
@@ -129,7 +118,8 @@ export default can.Map.extend({
 		},
 		/**
 		 * @property {HTMLBoolean} button.viewModel.primary primary
-		 * @description Whether the button is disabled.
+         * @parent button/viewModel
+		 * @description Makes the button use primary styling.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		primary: {
@@ -137,26 +127,9 @@ export default can.Map.extend({
 			type: 'htmlbool'
 		},
 		/**
-		 * @property {HTMLBoolean} button.viewModel.secondary secondary
-		 * @description Whether the button is disabled.
-		 * @option {HTMLBoolean} Defaults to `false`.
-		 */
-		secondary: {
-			value: false,
-			type: 'htmlbool'
-		},
-		/**
-		 * @property {HTMLBoolean} button.viewModel.tertiary tertiary
-		 * @description Whether the button is disabled.
-		 * @option {HTMLBoolean} Defaults to `false`.
-		 */
-		tertiary: {
-			value: false,
-			type: 'htmlbool'
-		},
-		/**
 		 * @property {HTMLBoolean} button.viewModel.link link
-		 * @description Whether the button is disabled.
+         * @parent button/viewModel
+		 * @description Makes the button use link styling.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		link: {
@@ -165,13 +138,19 @@ export default can.Map.extend({
 		},
 		/**
 		 * @property {HTMLBoolean} button.viewModel.default default
-		 * @description Whether the button is disabled.
+         * @parent button/viewModel
+		 * @description Makes the button use default styling.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		default: {
 			value: false,
 			type: 'htmlbool'
 		},
+		/**
+		 * @property {HTMLBoolean} button.viewModel.href href
+         * @parent button/viewModel
+		 * @description The href attribute of the button. This will render the button using an `<a>` tag.
+		 */
 		href: {
 			value: null
 		}

@@ -7,23 +7,19 @@
  *
  * @signature '<bitstrap-button></bitstrap-button>'
  *
- * @param {HTMLBoolean} disabled Contains the model to search with.
- * @param {HTMLBoolean} submit The ID of the input element.
- * @param {HTMLBoolean} active Marks when a selection is made.
- * @param {HTMLBoolean} block The selected item object.
- * @param {String} name The amount of time to wait before searching.
- * @param {String} size The number of characters that must be entered to trigger a search.
- * @param {String} type The number of characters that must be entered to trigger a search.
- * @param {HTMLBoolean} success The number of characters that must be entered to trigger a search.
- * @param {HTMLBoolean} info The number of characters that must be entered to trigger a search.
- * @param {HTMLBoolean} warning The number of characters that must be entered to trigger a search.
- * @param {HTMLBoolean} danger The number of characters that must be entered to trigger a search.
- * @param {HTMLBoolean} primary The number of characters that must be entered to trigger a search.
- * @param {HTMLBoolean} secondary The number of characters that must be entered to trigger a search.
- * @param {HTMLBoolean} tertiary The number of characters that must be entered to trigger a search.
- * @param {HTMLBoolean} link The number of characters that must be entered to trigger a search.
- * @param {HTMLBoolean} default The number of characters that must be entered to trigger a search.
- * @param {String} href The number of characters that must be entered to trigger a search.
+ * @param {HTMLBoolean} disabled The disabled state of the button.
+ * @param {HTMLBoolean} submit Whether the button will submit.
+ * @param {HTMLBoolean} active The active state of the button.
+ * @param {HTMLBoolean} block Whether the button should be a block level button.
+ * @param {String} name The href attribute of the button.
+ * @param {String} size The size of the button. Possible values are: xs, extra-small, sm, small, default, lg or large.
+ * @param {String} type The style of the button.
+ *                      Possible values are: default, primary, success, info, warning, danger, link.
+ *                      The type of button can also be added as an HTML attribute like:
+ *
+ * 		<bitstrap-button primary></bitstrap-button>
+ *
+ * @param {String} href The href attribute of the button. This will render the button using an `<a>` tag.
  *
  * @body
  *
@@ -35,7 +31,7 @@
  *
  * @demo ../button/demos/sizes.html
  *
- * ##Tags
+ * ## Tags
  *
  * @demo ../button/demos/tags.html
  *
@@ -48,20 +44,20 @@
  * @demo ../button/demos/states.html
  *
  */
-import can from "can";
-import _ from "lodash";
-import "can/map/define/define";
+import can from 'can';
+import _ from 'lodash';
+import 'can/map/define/define';
 import ViewModel from './viewmodel';
-import template from "./button.stache!";
-import "./button.less!";
+import template from './button.stache!';
+import './button.less!';
 
 export default can.Component.extend({
-	tag: "bitstrap-button",
+	tag: 'bitstrap-button',
 	template: template,
 	viewModel: ViewModel,
 	events: {
 		click: function(el, ev) {
-			if (this.viewModel.attr("disabled")) {
+			if (this.viewModel.attr('disabled')) {
 				ev.preventDefault();
 				ev.stopPropagation();
 			}
