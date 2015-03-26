@@ -1,23 +1,23 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
 <script type='text/stache' id="demo" can-autorender>
-  <can-import from="modal/modal"/>
-  <select can-value="size" can-change="openModal" >
-    <option value="lg">Large</option>
-    <option value="">Normal</option>
-    <option value="sm">Small</option>
-  </select>
-  <bitstrap-modal visible="{visible}" modal-size="{size}">Let Modal handle all your modal tasks; Big or small!</bitstrap-modal>
+<can-import from="modal/modal"/>
+<select can-value="size" can-change="openModal" >
+<option value="lg">Large</option>
+<option value="">Normal</option>
+<option value="sm">Small</option>
+</select>
+<bitstrap-modal visible="{visible}" modal-size="{size}">Let Modal handle all your modal tasks; Big or small!</bitstrap-modal>
 </script>
 
 <script src="../../node_modules/steal/steal.js" 
 		main="can/view/autorender/">
-    import can from 'can';
-    
-    can.$('#demo').viewModel({
-        visible: false,
-        size: '',
-        openModal: function () {
-            this.attr('visible', true);
-        }
-    });
+import can from 'can';
+
+can.$('#demo').viewModel({
+visible: false,
+size: '',
+openModal: function () {
+    this.attr('visible', true);
+}
+});
 </script>
