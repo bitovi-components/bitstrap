@@ -1,0 +1,25 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+	.container {
+		padding: 20px 0;
+	}
+</style>
+<div class="container">
+	<script type='text/stache' id="demo" can-autorender>
+		<can-import from="button/button"/>
+		<p>
+            <bitstrap-button active>This is active</bitstrap-button>
+            <bitstrap-button primary active>This is active</bitstrap-button>
+        </p>
+        <p>
+            <bitstrap-button disabled>This is disabled</bitstrap-button>
+            <bitstrap-button primary disabled href="#">This is disabled</bitstrap-button>
+        </p>
+	</script>
+</div>
+<script>
+	window.DEMO_HTML = document.getElementById("demo").innerHTML.replace('<can-import from="button/button"/>', '');
+	window.DEMO_SOURCE = true;
+</script>
+<script src="../../node_modules/steal/steal.js"
+    main="can/view/autorender/"></script>

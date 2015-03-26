@@ -1,0 +1,34 @@
+{{#if href}}
+<a class="bs-button-btn btn btn-{{type}}
+          {{#if active}}active{{/if}}
+          {{#if size}}btn-{{size}}{{/if}}
+          {{#if block}}btn-block{{/if}}
+          {{#if wide}}btn-wide{{/if}}
+          {{#if disabled}}disabled{{/if}}"
+   href="{{href}}">
+  <content></content>
+</a>
+{{else}}
+{{#if value}}
+<input class="bs-button-btn btn btn-{{type}}
+              {{#if active}}active{{/if}}
+              {{#if size}}btn-{{size}}{{/if}}
+              {{#if block}}btn-block{{/if}}
+              {{#if wide}}btn-wide{{/if}}"
+       {{#if name}}name="{{name}}"{{/if}}
+       value="{{value}}"
+        {{#unless submit}}type="button"{{/unless}}
+       {{#if disabled}}disabled{{/if}}>
+{{else}}
+<button class="bs-button-btn btn btn-{{type}}
+               {{#if active}}active{{/if}}
+               {{#if size}}btn-{{size}}{{/if}}
+               {{#if block}}btn-block{{/if}}
+               {{#if wide}}btn-wide{{/if}}"
+        {{#if name}}name="{{name}}"{{/if}}
+        {{#unless submit}}type="button"{{/unless}}
+        {{#if disabled}}disabled{{/if}}>
+  <content></content>
+</button>
+{{/if}}
+{{/if}}
