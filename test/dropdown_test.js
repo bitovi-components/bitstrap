@@ -26,7 +26,7 @@ QUnit.module("bit-strap-dropdown component",{
 		template = can.stache('<bitstrap-dropdown items="{items}" button-label="test"></bitstrap-dropdown>');
 		$('#qunit-fixture').append(template({}));
 		$component = $('bitstrap-dropdown',$('#qunit-fixture') );
-		vm = $component.data('scope');
+		vm = can.viewModel($component);
 		
 		var items = new can.List([{label:'test'},{label:'hello'}]);
 		
