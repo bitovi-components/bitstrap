@@ -1,23 +1,31 @@
 import QUnit from "steal-qunit";
-// import {CanPanelVM, CanTabsVM} from "bit-tabs";
+import ViewModel from "modal/modal";
 import can from "can";
 import stache from "can/view/stache/";
 import $ from "jquery";
 
-QUnit.module("bit-strap-modal view model");
+var $component, vm, template;
 
-QUnit.test("basics", function(){
-	QUnit.ok(true, 'works');
-});
-
-var template = can.stache("<div></div>");
-
-QUnit.module("bit-strap-modal component",{
-	setup: function(){
-		$("#qunit-fixture").append(template());
+QUnit.module("bitstrap-modal view model", {
+	beforeEach: function () {
+		vm = new ViewModel({});
 	}
 });
 
 QUnit.test("basics", function(){
-	QUnit.ok(true, 'works');
+	equal( vm.attr('visible'), false, 'Visible defaults to false');
+	equal( vm.attr('modalTitle'), '', 'Title defaults to empty string.');
+	equal( vm.attr('modalSize'), '', 'Size defaults to empty string.');
+	equal( vm.attr('isModal'), true, 'Is modal by default.');
+	equal( vm.attr('isHidden'), true, 'isHidden flips visible');
+});
+
+
+QUnit.module("bitstrap-modal component",{
+	beforeEach: function () {
+		template = can.stache('<bitstrap-modal></bitstrap-modal>');
+		$('#qunit-fixture').append(template({}));
+		$component = $('bitstrap-modal',$('#qunit-fixture') );
+		vm = can.viewModel($component);
+	}
 });
