@@ -1,16 +1,27 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+
 <script type='text/stache' id="demo" can-autorender>
-  <can-import from="dropdown/dropdown"/>
-  <bitstrap-dropdown items="{items}" button-label="Select Something"></bitstrap-dropdown>
+<can-import from="dropdown/dropdown"/>
+<bitstrap-dropdown items="{items}" button-label="Select Something"></bitstrap-dropdown>
 </script>
-<script src="../node_modules/steal/steal.js" 
-		main="can/view/autorender/">
+
+<script src="../../node_modules/steal/steal.js" main="can/view/autorender/" id="demo-source">
         
-    import can from 'can';
-    var items = new can.List([
-        { label: "test" }
-    ]);
-    
-    can.$('#demo').viewModel().attr({
-        items: items
-    });
+import can from 'can';
+var items = new can.List([
+    { label: "test" },
+    { label: "Hello" },
+    { label: "I am a button" },
+    { label: "Hi" },
+    { label: "Banana" }
+]);
+
+can.$('#demo').viewModel().attr({
+    items: items
+});
+</script>
+
+<script>
+	window.DEMO_HTML = document.getElementById("demo").innerHTML.replace('<can-import from="button/button"/>', '');
+	window.DEMO_SOURCE = document.getElementById("demo-source").innerHTML;
 </script>
