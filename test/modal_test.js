@@ -12,7 +12,7 @@ QUnit.module("bitstrap-modal view model", {
 	}
 });
 
-QUnit.test("basics", function(){
+QUnit.test("basics", function () {
 	equal( vm.attr('visible'), false, 'Visible defaults to false');
 	equal( vm.attr('modalTitle'), '', 'Title defaults to empty string.');
 	equal( vm.attr('modalSize'), '', 'Size defaults to empty string.');
@@ -28,4 +28,30 @@ QUnit.module("bitstrap-modal component",{
 		$component = $('bitstrap-modal',$('#qunit-fixture') );
 		vm = can.viewModel($component);
 	}
+});
+
+QUnit.test('renders', function () {
+	equal( $component.length, 1, 'Component rendered');
+	equal( $component.find('.modal').is(':visible'), false, 'Modal is hidden' );
+});
+
+QUnit.test('toggles', function () {
+	vm.attr('visible', true);
+	equal( $component.find('.modal').is(':visible'), true, 'Modal is visible' );
+	equal( $component.find('.modal-backdrop').is(':visible'), true, 'Modal is visible' );
+	equal( $('body').hasClass('modal-open'), true, 'Class added to body' );
+	vm.attr('visible', false);
+	equal( $component.find('.modal').is(':visible'), false, 'Modal is hidden' );
+	equal( $component.find('.modal-backdrop').is(':visible'), false, 'Modal is visible' );
+	equal( $('body').hasClass('modal-open'), false, 'Class removed from body' );
+});
+
+QUnit.test('header', function () {
+	equal( $component.find('.modal-header').length, 0, 'Header is not rendered' );
+	
+	vm.attr('modalTitle', 'test');
+	vm.attr('visible', true);
+	equal( $component.find('.modal-header').length, 1, 'Header is rendered' );
+	equal( $component.find('.modal-header').is(':visible'), true, 'Header is visible' );
+	equal( $component.find('.modal-title').text(), 'test', 'Modal title is rendered' );
 });
