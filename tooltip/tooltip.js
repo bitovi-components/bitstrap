@@ -8,7 +8,7 @@
 *
 *
 * @description
-* 
+*
 *
 *
 * @signature '<bitstrap-tooltip></bitstrap-tooltip>'
@@ -25,7 +25,7 @@
 * ```
 *
 *
-* @demo bit-strap.html#dropdown
+* @demo ../tooltip/demos/tooltip.html
 */
 import can from 'can';
 import ViewModel from './viewmodel';
@@ -48,7 +48,7 @@ can.Component.extend({
     template: template,
     scope: ViewModel,
     helpers : {
-        
+
         /**
          * @function tooltip.helpers.positionTooltip Position Tooltip Helper
          * @description Bootstraps the repositioning event.
@@ -58,7 +58,7 @@ can.Component.extend({
         }
     },
     events: {
-        
+
         /**
          * @function tooltip.events.inserted Inserted Handler
          * @description Initializes the positioning handler for tooltips
@@ -73,7 +73,7 @@ can.Component.extend({
             this.positioner = new Positioner(this.element, opts);
             this.element.trigger('reposition');
         },
-        
+
         /**
          * @function tooltip.events.triggerMouseoverEvent Trigger Mouseover Event Handler
          * @description Shows tooltip on mouseover
@@ -81,7 +81,7 @@ can.Component.extend({
         '.tooltip-trigger mouseover': function () {
             this.viewModel.toggle(true);
         },
-        
+
         /**
          * @function tooltip.events.triggerMouseoutEvent Trigger Mouseout Event Handler
          * @description Shows tooltip on mouseout

@@ -8,7 +8,7 @@
 *
 *
 * @description
-* 
+*
 *
 *
 * @signature '<bitstrap-popover></bitstrap-popover>'
@@ -25,7 +25,7 @@
 * ```
 *
 *
-* @demo bit-strap.html#dropdown
+* @demo ../popover/demos/popover.html
 */
 import can from 'can';
 import ViewModel from './viewmodel';
@@ -48,7 +48,7 @@ can.Component.extend({
     template: template,
     scope: ViewModel,
     helpers : {
-        
+
         /**
          * @function popover.helpers.positionPopover Position popover Helper
          * @description Bootstraps the repositioning event.
@@ -58,7 +58,7 @@ can.Component.extend({
         }
     },
     events: {
-        
+
         /**
          * @function popover.events.inserted Inserted Handler
          * @description Initializes the positioning handler for popovers
@@ -73,11 +73,11 @@ can.Component.extend({
                     buffer: {bottom:15, top:15, left:15, right: 15}
                 };
                 this.positioner = new Positioner(this.element.parent(), opts);
-                this.element.trigger('reposition');    
+                this.element.trigger('reposition');
             }
-            
+
         },
-        
+
         /**
          * @function popover.events.triggerMouseoverEvent Trigger Mouseover Event Handler
          * @description Shows popover on mouseover
@@ -85,7 +85,7 @@ can.Component.extend({
         '.popover-trigger mouseover': function () {
             this.viewModel.toggle(true);
         },
-        
+
         /**
          * @function popover.events.triggerMouseoutEvent Trigger Mouseout Event Handler
          * @description Shows popover on mouseout

@@ -15,7 +15,7 @@ Bootstrap Components written in CanJS
 
 @demo ../button/demos/styles.html
 
-## Dropdwon
+## Dropdown
 
 [dropdown API Docs]
 

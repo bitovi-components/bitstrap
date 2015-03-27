@@ -7,7 +7,7 @@
 *
 *
 * @description
-* 
+*
 *
 *
 * @signature '<bitstrap-modal></bitstrap-modal>'
@@ -24,7 +24,7 @@
 * ```
 *
 *
-* @demo bit-strap.html#dropdown
+* @demo ../modal/demos/modal.html
 */
 import can from 'can';
 import ViewModel from './viewmodel';
@@ -37,7 +37,7 @@ can.Component.extend({
     template: template,
     scope: ViewModel,
     events: {
-        
+
         /**
          * @function modal.events.visibleChangeEvent Visible Property Change Event Handler
          * @description Manages a class in the `BODY` tag used by the modal.

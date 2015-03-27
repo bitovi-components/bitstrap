@@ -25,7 +25,7 @@
 * ```
 *
 *
-* @demo bit-strap.html#dropdown
+* @demo ../dropdown/demos/simple.html
 */
 import can from 'can';
 import ViewModel from './viewmodel';
