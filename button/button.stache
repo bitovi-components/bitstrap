@@ -1,0 +1,21 @@
+{{#if href}}
+<a class="{{className}}"
+   href="{{href}}">
+  <content></content>
+</a>
+{{else}}
+{{#if value}}
+<input class="{{className}}"
+       {{#if name}}name="{{name}}"{{/if}}
+       value="{{value}}"
+       type="{{buttonType}}"
+       {{#if disabled}}disabled{{/if}}>
+{{else}}
+<button class="{{className}}"
+        {{#if name}}name="{{name}}"{{/if}}
+        type="{{buttonType}}"
+        {{#if disabled}}disabled{{/if}}>
+  <content></content>
+</button>
+{{/if}}
+{{/if}}

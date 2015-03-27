@@ -1,0 +1,31 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+	.container {
+		padding: 20px 0;
+	}
+</style>
+<div class="container">
+	<script type='text/stache' id="demo" can-autorender>
+<can-import from="button/button"/>
+  <form can-submit="doSubmit @event">
+  	<bitstrap-button value="Will Not Submit"></bitstrap-button>
+  	<bitstrap-button submit value="Submit"></bitstrap-button>
+  </form>
+	</script>
+</div>
+<script>
+	window.DEMO_HTML = document.getElementById("demo").innerHTML.replace('<can-import from="button/button"/>', '');
+	window.DEMO_SOURCE = true;
+</script>
+<script src="../../node_modules/steal/steal.js"
+    main="can/view/autorender/">
+    import $ from "jquery";
+	import can from "can";
+
+	$("#demo").viewModel().attr({
+		doSubmit: function(ev) {
+			alert('Submitted');
+			ev.preventDefault();
+		}
+	});
+</script>

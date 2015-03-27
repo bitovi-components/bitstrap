@@ -7,4 +7,10 @@
 
 # BitStrap
 
-can.Component wrapper for Bootstrap
+Bootstrap Components written in CanJS
+
+## Button
+
+[button API Docs]
+
+@demo ../button/demos/styles.html
