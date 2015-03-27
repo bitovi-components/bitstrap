@@ -1,0 +1,4 @@
+<button id="{{dropdownId}}" 
+        can-click="toggleDropdown"
+        class="btn btn-default dropdown-toggle" 
+        type="button" >{{buttonLabel}}</button>
