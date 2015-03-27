@@ -1,0 +1,39 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    .container{
+        margin: 5rem auto;
+    }
+</style>
+
+<script type='text/stache' id="demo" can-autorender>
+<can-import from="tooltip/tooltip"/>
+<div class="container">
+    <bitstrap-tooltip tooltip="I'm a Left Tooltip" placement="left">
+        <button type="button" class="btn btn-default">Left Tooltip</button>
+    </bitstrap-tooltip>
+
+    <bitstrap-tooltip tooltip="I'm a Top Tooltip" placement="top">
+        <button type="button" class="btn btn-default">Top Tooltip</button>
+    </bitstrap-tooltip>
+    
+    <bitstrap-tooltip tooltip="I'm a Bottom Tooltip" placement="bottom">
+        <button type="button" class="btn btn-default">Bottom Tooltip</button>
+    </bitstrap-tooltip>
+
+    <bitstrap-tooltip tooltip="I'm a Right Tooltip" placement="right">
+        <button type="button" class="btn btn-default">Right Tooltip</button>
+    </bitstrap-tooltip>
+</div>
+</script>
+
+<script src="../../node_modules/steal/steal.js" 
+		main="can/view/autorender/" id="demo-source">
+import can from 'can';
+
+can.$('#demo').viewModel({});
+</script>
+
+<script>
+    window.DEMO_HTML = document.getElementById("demo").innerHTML.replace('<can-import from="tooltip/tooltip"/>', '');
+	window.DEMO_SOURCE = document.getElementById("demo-source").innerHTML;
+</script>
