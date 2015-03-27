@@ -2,7 +2,7 @@ import can from 'can';
 import _ from 'lodash';
 import 'can/map/define/';
 
-var TYPES = ['success', 'info', 'warning', 'danger', 'primary', 'secondary', 'tertiary', 'link', 'default'];
+var TYPES = ['success', 'info', 'warning', 'danger', 'primary', 'link', 'default'];
 var SIZES = {
 	large: 'lg',
 	default: null,
@@ -25,7 +25,7 @@ export default can.Map.extend({
 		/**
 		 * @property {HTMLBoolean} button.viewModel.submit submit
          * @parent button/viewModel
-		 * @description Whether the button is disabled.
+		 * @description Whether a button can submit a form.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		submit: {
@@ -45,7 +45,7 @@ export default can.Map.extend({
 		/**
 		 * @property {HTMLBoolean} button.viewModel.block block
          * @parent button/viewModel
-		 * @description Whether the button should be a block level button.
+		 * @description Whether the button should be block level.
 		 * @option {HTMLBoolean} Defaults to `false`.
 		 */
 		block: {
@@ -53,31 +53,41 @@ export default can.Map.extend({
 			type: 'htmlbool'
 		},
 		/**
-		 * @property {HTMLBoolean} button.viewModel.href href
+		 * @property {HTMLBoolean} button.viewModel.name name
          * @parent button/viewModel
 		 * @description The name attribute of the button.
 		 */
 		name: {
 			value: null
 		},
+		/**
+		 * @property {String} button.viewModel.size size
+         * @parent button/viewModel
+		 * @description The size of the button. Possible values are: xs, extra-small, sm, small, default, lg or large.
+		 */
 		size: {
 			value: null,
 			type: x => SIZES[(x||'').toLowerCase()] || x
 		},
+		/**
+		 * @property {String} button.viewModel.type type
+         * @parent button/viewModel
+		 * @description The style of the button. Possible values are: default, primary, success, info, warning, danger, link.
+		 */
 		type: {
 			get: function () {
 				return _.find(TYPES, type => this.attr((type || '').toLowerCase())) || 'default';
 			},
 			set: function (type) {
 				if (this.attr('type')) {
-						this.attr(this.attr('type'), false);
+					this.attr(this.attr('type'), false);
 				}
 				this.attr(type, true);
 				return type;
 			}
 		},
 		/**
-		 * @property {HTMLBoolean} button.viewModel.wide wide
+		 * @property {HTMLBoolean} button.viewModel.success success
          * @parent button/viewModel
 		 * @description Makes the button use success styling.
 		 * @option {HTMLBoolean} Defaults to `false`.
@@ -87,7 +97,7 @@ export default can.Map.extend({
 			type: 'htmlbool'
 		},
 		/**
-		 * @property {HTMLBoolean} button.viewModel.wide wide
+		 * @property {HTMLBoolean} button.viewModel.info info
          * @parent button/viewModel
 		 * @description Makes the button use info styling.
 		 * @option {HTMLBoolean} Defaults to `false`.
@@ -140,10 +150,10 @@ export default can.Map.extend({
 		 * @property {HTMLBoolean} button.viewModel.default default
          * @parent button/viewModel
 		 * @description Makes the button use default styling.
-		 * @option {HTMLBoolean} Defaults to `false`.
+		 * @option {HTMLBoolean} Defaults to `true`.
 		 */
 		default: {
-			value: false,
+			value: true,
 			type: 'htmlbool'
 		},
 		/**
@@ -152,6 +162,14 @@ export default can.Map.extend({
 		 * @description The href attribute of the button. This will render the button using an `<a>` tag.
 		 */
 		href: {
+			value: null
+		},
+		/**
+		 * @property {HTMLBoolean} button.viewModel.value value
+         * @parent button/viewModel
+		 * @description The value attribute of the button.
+		 */
+		value: {
 			value: null
 		}
 	}

@@ -7,10 +7,10 @@
 <div class="container">
 	<script type='text/stache' id="demo" can-autorender>
 <can-import from="button/button"/>
-  <bitstrap-button href="#">Link</bitstrap-button>
-  <bitstrap-button>Button</bitstrap-button>
-  <bitstrap-button value="Input"></bitstrap-button>
-  <bitstrap-button submit value="Submit"></bitstrap-button>
+  <form can-submit="doSubmit @event">
+  	<bitstrap-button value="Will Not Submit"></bitstrap-button>
+  	<bitstrap-button submit value="Submit"></bitstrap-button>
+  </form>
 	</script>
 </div>
 <script>
@@ -18,4 +18,14 @@
 	window.DEMO_SOURCE = true;
 </script>
 <script src="../../node_modules/steal/steal.js"
-    main="can/view/autorender/"></script>
+    main="can/view/autorender/">
+    import $ from "jquery";
+	import can from "can";
+
+	$("#demo").viewModel().attr({
+		doSubmit: function(ev) {
+			alert('Submitted');
+			ev.preventDefault();
+		}
+	});
+</script>

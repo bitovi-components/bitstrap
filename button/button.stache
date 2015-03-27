@@ -1,32 +1,19 @@
 {{#if href}}
-<a class="bs-button-btn btn btn-{{type}}
-          {{#if active}}active{{/if}}
-          {{#if size}}btn-{{size}}{{/if}}
-          {{#if block}}btn-block{{/if}}
-          {{#if wide}}btn-wide{{/if}}
-          {{#if disabled}}disabled{{/if}}"
+<a class="{{className}}"
    href="{{href}}">
   <content></content>
 </a>
 {{else}}
 {{#if value}}
-<input class="bs-button-btn btn btn-{{type}}
-              {{#if active}}active{{/if}}
-              {{#if size}}btn-{{size}}{{/if}}
-              {{#if block}}btn-block{{/if}}
-              {{#if wide}}btn-wide{{/if}}"
+<input class="{{className}}"
        {{#if name}}name="{{name}}"{{/if}}
        value="{{value}}"
-        {{#unless submit}}type="button"{{/unless}}
+       type="{{buttonType}}"
        {{#if disabled}}disabled{{/if}}>
 {{else}}
-<button class="bs-button-btn btn btn-{{type}}
-               {{#if active}}active{{/if}}
-               {{#if size}}btn-{{size}}{{/if}}
-               {{#if block}}btn-block{{/if}}
-               {{#if wide}}btn-wide{{/if}}"
+<button class="{{className}}"
         {{#if name}}name="{{name}}"{{/if}}
-        {{#unless submit}}type="button"{{/unless}}
+        type="{{buttonType}}"
         {{#if disabled}}disabled{{/if}}>
   <content></content>
 </button>
