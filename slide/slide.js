@@ -11,13 +11,6 @@ export default can.Component.extend({
             active: {
                 value: false,
                 set: conv.as_boolean
-            },
-            transitionDuration: {
-                value: 600,
-                type: conv.as_number
-            },
-            direction: {
-                value: null
             }
         }
     }),
@@ -35,27 +28,11 @@ export default can.Component.extend({
         checkActive: function() {
             if (!this.element) return;
 
-            var direction = this.scope.attr('direction');
-            var position = direction === 'left' ? 'next' : 'prev';
-
-            // Add the direction that the carousel needs to move
-            //this.element.addClass(direction);
-
             if(this.scope.attr('active')) {
                 this.element.addClass('active');
-                // TODO : implement transition
-                //this.element.addClass(position);
-                //setTimeout(() => {
-                //    this.element.addClass('active').removeClass(direction);
-                //}, this.scope.attr('transitionDuration'));
             } else {
                 this.element.removeClass('active');
-                //this.element.addClass(direction);
-                //setTimeout(() => {
-                //    this.element.removeClass(['active', position, direction].join(' '));
-                //}, this.scope.attr('transitionDuration'));
             }
-            this.scope.attr('direction', null);
         }
     }
 });

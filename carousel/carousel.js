@@ -13,14 +13,6 @@ export default can.Component.extend({
             slide: { value: 1, type: conv.as_number },
             slides: { value: {} },
             slideCount: { value: 0, type: conv.as_number },
-            transitionDuration: {
-                value: 600,
-                type: conv.as_number,
-                get: function(val) {
-                    // We don't want the transition duration to be greater than the interval
-                    return Math.min(val, this.attr('interval'));
-                }
-            },
             pause: {
                 value: false,
                 set: function(newVal) {
@@ -112,7 +104,6 @@ export default can.Component.extend({
                     var slideScope = can.$(slide).scope();
                     var thisSlide = ndx + 1;
 
-                    slideScope.attr('transitionDuration', this.scope.attr('transitionDuration'));
                     slideScope.attr('slideNumber', thisSlide);
                     if (slideScope && slideScope.attr('active')) {
                         this.scope.attr('currentSlide', slideScope);
@@ -143,10 +134,6 @@ export default can.Component.extend({
             if (newVal) {
                 newSlide = this.scope.attr('slides').attr(newVal - 1);
             }
-
-            var direction = newVal > oldVal ? 'left' : 'right';
-            this.scope.attr('currentSlide') && this.scope.attr('currentSlide').attr('direction', direction);
-            //newSlide && newSlide.attr('direction', direction);
 
             this.scope.attr('currentSlide') && this.scope.attr('currentSlide').attr('active', false);
             newSlide && newSlide.attr('active', true);
