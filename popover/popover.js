@@ -50,10 +50,10 @@ can.Component.extend({
     helpers : {
         
         /**
-         * @function popover.helpers.positionpopover Position popover Helper
+         * @function popover.helpers.positionPopover Position popover Helper
          * @description Bootstraps the repositioning event.
          */
-        positionpopover : function(){
+        positionPopover : function(){
             return popoverHandler;
         }
     },
@@ -64,14 +64,18 @@ can.Component.extend({
          * @description Initializes the positioning handler for popovers
          */
         inserted: function () {
-            var opts = {
-                placement: this.viewModel.attr('placement'),
-                trigger: '.popover-trigger',
-                target: '#' + this.viewModel.attr('popoverId'),
-                buffer: {bottom:12, top:10, left:2}
-            };
-            this.positioner = new Positioner(this.element, opts);
-            this.element.trigger('reposition');
+            var triggerSelector = this.viewModel.attr('triggerSelector');
+            if ( triggerSelector ) {
+                var opts = {
+                    placement: this.viewModel.attr('placement'),
+                    trigger: triggerSelector,
+                    target: '.popover',
+                    buffer: {bottom:15, top:15, left:15, right: 15}
+                };
+                this.positioner = new Positioner(this.element.parent(), opts);
+                this.element.trigger('reposition');    
+            }
+            
         },
         
         /**

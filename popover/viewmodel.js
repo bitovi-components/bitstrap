@@ -41,6 +41,11 @@ export default can.Map.extend({
                         val :
                         'top';
             }
+        },
+        
+        triggerSelector: {
+            value: '',
+            type: 'string'
         }
     },
     

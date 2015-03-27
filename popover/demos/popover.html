@@ -8,9 +8,18 @@
 <script type='text/stache' id="demo" can-autorender>
 <can-import from="popover/popover"/>
 <div class="container">
-    <button class="btn btn-primary" can-click="toggle">Toggle Popover</button>
-    <bitstrap-popover visible="{visible}" popover-title="I'm a Left popover" placement="right">
-        Hello World!
+    <button class="btn btn-primary" id="popover-trigger" can-click="toggle">Toggle Popover</button>
+    <bitstrap-popover 
+        visible="{visible}" 
+        trigger-selector="#popover-trigger" 
+        popover-title="I'm a popover!" 
+        placement="bottom">
+        
+        <p>Bacon ipsum dolor amet chuck meatball tenderloin tri-tip short loin rump. 
+            Cupim spare ribs pancetta frankfurter. Meatball porchetta spare ribs, 
+            bresaola jerky ground round chicken turkey rump ribeye pork belly sausage 
+            cow tongue frankfurter. Cupim sirloin filet mignon tri-tip, biltong 
+            alcatra andouille ham.</p>
     </bitstrap-popover>
 </div>
 </script>

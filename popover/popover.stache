@@ -1,5 +1,5 @@
 {{#visible}}
-<div class="popover {{placement}} fade {{#visible}}in{{/visible}}" style="display:block;">
+<div class="popover {{placement}} fade {{#visible}}in{{/visible}}" style="display:block;" {{positionPopover}}>
     <div class="arrow"></div>
     {{#popoverTitle}}
     <h3 class="popover-title" id="{{popoverId}}">{{popoverTitle}}</h3>
