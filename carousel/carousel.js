@@ -102,6 +102,9 @@ export default can.Component.extend({
         '.carousel-control click': function(elem) {
             can.$(elem).focus();
         },
+        'bitstrap-carousel-slide transitioned': function(elem, evt) {
+            can.$(elem).attr('transition')
+        },
         'bitstrap-carousel-slide attached': function() {
             this.scope.attr('slideCount', this.scope.attr('slideCount') + 1);
             if (!this.scope.attr('currentSlide')) {
@@ -140,6 +143,10 @@ export default can.Component.extend({
             if (newVal) {
                 newSlide = this.scope.attr('slides').attr(newVal - 1);
             }
+
+            var direction = newVal > oldVal ? 'left' : 'right';
+            this.scope.attr('currentSlide') && this.scope.attr('currentSlide').attr('direction', direction);
+            //newSlide && newSlide.attr('direction', direction);
 
             this.scope.attr('currentSlide') && this.scope.attr('currentSlide').attr('active', false);
             newSlide && newSlide.attr('active', true);

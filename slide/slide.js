@@ -8,8 +8,17 @@ export default can.Component.extend({
     template: template,
     scope: can.Map.extend({
         define: {
-            active: { value: false, set: conv.as_boolean },
-            transitionDuration: { value: 600, type: conv.as_number}
+            active: {
+                value: false,
+                set: conv.as_boolean
+            },
+            transitionDuration: {
+                value: 600,
+                type: conv.as_number
+            },
+            direction: {
+                value: null
+            }
         }
     }),
     events: {
@@ -24,17 +33,29 @@ export default can.Component.extend({
         },
         '{scope} active': 'checkActive',
         checkActive: function() {
+            if (!this.element) return;
+
+            var direction = this.scope.attr('direction');
+            var position = direction === 'left' ? 'next' : 'prev';
+
+            // Add the direction that the carousel needs to move
+            //this.element.addClass(direction);
+
             if(this.scope.attr('active')) {
-                this.element && this.element.addClass('left next');
-                setTimeout(() => {
-                    this.element && this.element.removeClass('left next').addClass('active');
-                }, this.scope.attr('transitionDuration'));
+                this.element.addClass('active');
+                // TODO : implement transition
+                //this.element.addClass(position);
+                //setTimeout(() => {
+                //    this.element.addClass('active').removeClass(direction);
+                //}, this.scope.attr('transitionDuration'));
             } else {
-                this.element && this.element.addClass('left');
-                setTimeout(() => {
-                    this.element && this.element.removeClass('left active');
-                }, this.scope.attr('transitionDuration'));
+                this.element.removeClass('active');
+                //this.element.addClass(direction);
+                //setTimeout(() => {
+                //    this.element.removeClass(['active', position, direction].join(' '));
+                //}, this.scope.attr('transitionDuration'));
             }
+            this.scope.attr('direction', null);
         }
     }
 });
