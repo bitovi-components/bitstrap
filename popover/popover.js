@@ -69,7 +69,7 @@ can.Component.extend({
                 var opts = {
                     placement: this.viewModel.attr('placement'),
                     trigger: triggerSelector,
-                    target: '.popover',
+                    target: '#' + this.viewModel.attr('popoverId'),
                     buffer: {bottom:15, top:15, left:15, right: 15}
                 };
                 this.positioner = new Positioner(this.element.parent(), opts);

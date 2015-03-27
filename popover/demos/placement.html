@@ -1,7 +1,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
 <style>
     .container{
-        margin: 5rem auto;
+        margin: 20rem 0 0 30rem;
     }
 </style>
 
@@ -9,20 +9,51 @@
 <can-import from="popover/popover"/>
 <div class="container">
 
-    <bitstrap-popover popover-title="I'm a Left popover" placement="left">
-        Hello World!
-    </bitstrap-popover>
 
-    <bitstrap-popover popover-title="I'm a Top popover" placement="top">
-        Lorem Ipsum
+    <button class="btn btn-primary" id="popover-left" data-placement="Left" can-click="toggle">Toggle Popover</button>
+    <bitstrap-popover 
+        visible="{visibleLeft}" 
+        trigger-selector="#popover-left" 
+        popover-title="I'm a popover!" 
+        placement="left">
+        
+        <p>Bacon ipsum dolor amet chuck meatball tenderloin tri-tip short loin rump. 
+            Cupim spare ribs pancetta frankfurter.</p>
     </bitstrap-popover>
     
-    <bitstrap-popover popover-title="I'm a Bottom popover" placement="bottom">
-        Testing
+    <button class="btn btn-primary" id="popover-top" data-placement="Top" can-click="toggle">Toggle Popover</button>
+    <bitstrap-popover 
+        visible="{visibleTop}" 
+        trigger-selector="#popover-top" 
+        popover-title="I'm a popover!" 
+        placement="top">
+        
+        <p>Meatball porchetta spare ribs, bresaola jerky ground round chicken 
+            turkey rump ribeye pork belly sausage cow tongue frankfurter. </p>
     </bitstrap-popover>
-
-    <bitstrap-popover popover-title="I'm a Right popover" placement="right">
-        Heyo!
+    
+    <button class="btn btn-primary" id="popover-bottom" data-placement="Bottom" can-click="toggle">Toggle Popover</button>
+    <bitstrap-popover 
+        visible="{visibleBottom}" 
+        trigger-selector="#popover-bottom" 
+        popover-title="I'm a popover!" 
+        placement="bottom">
+        
+        <p>Bacon ipsum dolor amet chuck meatball tenderloin tri-tip short loin rump. 
+            Cupim spare ribs pancetta frankfurter. Meatball porchetta spare ribs, 
+            bresaola jerky ground round chicken turkey rump ribeye pork belly sausage 
+            cow tongue frankfurter. Cupim sirloin filet mignon tri-tip, biltong 
+            alcatra andouille ham.</p>
+    </bitstrap-popover>
+    
+    <button class="btn btn-primary" id="popover-right" data-placement="Right" can-click="toggle">Toggle Popover</button>
+    <bitstrap-popover 
+        visible="{visibleRight}" 
+        trigger-selector="#popover-right" 
+        popover-title="I'm a popover!" 
+        placement="right">
+        
+        <p>Cupim sirloin filet mignon tri-tip, biltong alcatra andouille ham.</p>
     </bitstrap-popover>
 </div>
 </script>
@@ -31,7 +62,17 @@
 		main="can/view/autorender/" id="demo-source">
 import can from 'can';
 
-can.$('#demo').viewModel({});
+can.$('#demo').viewModel({
+    visibleLeft:false,
+    visibleTop:false,
+    visibleBottom:false,
+    visibleRight:false,
+    toggle: function (ctx, $el) {
+        
+        var target = 'visible' + $el.data('placement');
+        this.attr(target, !this.attr(target));
+    }
+});
 </script>
 
 <script>

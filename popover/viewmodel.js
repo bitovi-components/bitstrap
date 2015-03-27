@@ -10,7 +10,7 @@ export default can.Map.extend({
 		 * @description Controls visibility of modal
 		 * @option {boolean} Defaults to `false`.
 		 */
-         visible: {
+        visible: {
             value: false,
             type: 'boolean'
         },
@@ -42,7 +42,13 @@ export default can.Map.extend({
                         'top';
             }
         },
-        
+            
+		/**
+		 * @property {string} popover.viewModel.triggerSelector triggerSelector
+         * @parent modal/viewModal
+		 * @description The trigger's selector to use for positioning
+		 * @option {string} Defaults to empty string.
+		 */
         triggerSelector: {
             value: '',
             type: 'string'
