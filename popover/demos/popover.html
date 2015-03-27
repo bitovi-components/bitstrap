@@ -1,0 +1,33 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    .container{
+        margin: 5rem auto;
+    }
+</style>
+
+<script type='text/stache' id="demo" can-autorender>
+<can-import from="popover/popover"/>
+<div class="container">
+    <button class="btn btn-primary" can-click="toggle">Toggle Popover</button>
+    <bitstrap-popover visible="{visible}" popover-title="I'm a Left popover" placement="right">
+        Hello World!
+    </bitstrap-popover>
+</div>
+</script>
+
+<script src="../../node_modules/steal/steal.js" 
+		main="can/view/autorender/" id="demo-source">
+import can from 'can';
+
+can.$('#demo').viewModel({
+    visible:false,
+    toggle: function () {
+        this.attr('visible', !this.attr('visible'));
+    }
+});
+</script>
+
+<script>
+    window.DEMO_HTML = document.getElementById("demo").innerHTML.replace('<can-import from="popover/popover"/>', '');
+	window.DEMO_SOURCE = document.getElementById("demo-source").innerHTML;
+</script>

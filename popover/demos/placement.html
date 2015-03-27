@@ -1,0 +1,40 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    .container{
+        margin: 5rem auto;
+    }
+</style>
+
+<script type='text/stache' id="demo" can-autorender>
+<can-import from="popover/popover"/>
+<div class="container">
+
+    <bitstrap-popover popover-title="I'm a Left popover" placement="left">
+        Hello World!
+    </bitstrap-popover>
+
+    <bitstrap-popover popover-title="I'm a Top popover" placement="top">
+        Lorem Ipsum
+    </bitstrap-popover>
+    
+    <bitstrap-popover popover-title="I'm a Bottom popover" placement="bottom">
+        Testing
+    </bitstrap-popover>
+
+    <bitstrap-popover popover-title="I'm a Right popover" placement="right">
+        Heyo!
+    </bitstrap-popover>
+</div>
+</script>
+
+<script src="../../node_modules/steal/steal.js" 
+		main="can/view/autorender/" id="demo-source">
+import can from 'can';
+
+can.$('#demo').viewModel({});
+</script>
+
+<script>
+    window.DEMO_HTML = document.getElementById("demo").innerHTML.replace('<can-import from="popover/popover"/>', '');
+	window.DEMO_SOURCE = document.getElementById("demo-source").innerHTML;
+</script>
