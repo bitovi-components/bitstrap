@@ -1,5 +1,6 @@
 /**
  * @module {can.Component} button bitstrap-button
+ * @parent bitstrap
  * @group button/events 0 Events
  * @group button/helpers 1 Helpers
  * @group button/viewModel 2 ViewModel
