@@ -9,3 +9,6 @@ import "./popover_test";
 import "./scrollspy_test";
 import "./tab_test";
 import "./tooltip_test";
+
+//utils
+import "./utils/positioner_test";
