@@ -1,0 +1,31 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    .container{
+        margin: 5rem auto;
+    }
+</style>
+
+<script type='text/stache' id="demo" can-autorender>
+<can-import from="alert/alert"/>
+<div class="container">
+    <bitstrap-alert visible="{visible}">Danger, Will Robinson, Danger!</bitstrap-alert>
+    <button class="btn" can-click="toggle">Click me!</button>
+</div>
+</script>
+
+<script src="../../node_modules/steal/steal.js" 
+		main="can/view/autorender/" id="demo-source">
+import can from 'can';
+
+can.$('#demo').viewModel({
+    visible:false,
+    toggle: function(){
+        this.attr('visible', !this.attr('visible'));
+    }
+});
+</script>
+
+<script>
+    window.DEMO_HTML = document.getElementById("demo").innerHTML.replace('<can-import from="alert/alert"/>', '');
+	window.DEMO_SOURCE = document.getElementById("demo-source").innerHTML;
+</script>
