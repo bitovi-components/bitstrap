@@ -8,8 +8,16 @@
 <script type='text/stache' id="demo" can-autorender>
 <can-import from="alert/alert"/>
 <div class="container">
-    <bitstrap-alert visible="{visible}">Danger, Will Robinson, Danger!</bitstrap-alert>
-    <button class="btn" can-click="toggle">Click me!</button>
+    <bitstrap-alert severity="info" 
+        visible="{visibleA}" 
+        alert-title="Non Dismissable alert"
+        is-dismissable="false">This alert cannot be dismissed!</bitstrap-alert>
+        
+    <bitstrap-alert severity="danger" 
+        visible="{visibleB}" 
+        alert-title="Danger, Will Robinson, Danger!">You can dismiss this alert</bitstrap-alert>
+        
+    <button class="btn" can-click="toggle">Toggle Alerts</button>
 </div>
 </script>
 
@@ -18,9 +26,11 @@
 import can from 'can';
 
 can.$('#demo').viewModel({
-    visible:false,
+    visibleA:false,
+    visibleB:false,
     toggle: function(){
-        this.attr('visible', !this.attr('visible'));
+        this.attr('visibleA', !this.attr('visibleA'));
+        this.attr('visibleB', !this.attr('visibleB'));
     }
 });
 </script>

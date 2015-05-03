@@ -5,9 +5,8 @@ export default can.Map.extend({
     define: {
         severity: {
             value: 'warning',
-            type: 'string',
-            set: function (val) {
-                var allowed = ['warning','danger'],
+            type: function (val) {
+                var allowed = ['info', 'success', 'warning', 'danger'],
                     isValid = allowed.indexOf(val);
                 
                 return isValid ? val: allowed[0];
