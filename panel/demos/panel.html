@@ -1,0 +1,27 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    .container{
+        margin: 5rem auto;
+    }
+</style>
+
+<script type='text/stache' id="demo" can-autorender>
+<can-import from="panel/panel"/>
+<div class="container">
+    <bitstrap-panel>
+        This is basically just a well.
+    </bitstrap-panel>
+</div>
+</script>
+
+<script src="../../node_modules/steal/steal.js" 
+		main="can/view/autorender/" id="demo-source">
+import can from 'can';
+
+can.$('#demo').viewModel({});
+</script>
+
+<script>
+    window.DEMO_HTML = document.getElementById("demo").innerHTML.replace('<can-import from="panel/panel"/>', '');
+	window.DEMO_SOURCE = document.getElementById("demo-source").innerHTML;
+</script>

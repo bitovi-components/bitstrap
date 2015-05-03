@@ -1,0 +1,15 @@
+<div class="panel {{classes}}">
+    {{#panelTitle}}
+    <div class="panel-heading">
+        <h3 class="panel-title">{{panelTitle}}</h3>
+    </div>
+    {{/panelTitle}}
+    
+    <div class="panel-body">
+        <content></content>
+    </div>
+
+    {{#panelFooter}}
+    <div class="panel-footer">{{panelFooter}}</div>
+    {{/panelFooter}}
+</div>
