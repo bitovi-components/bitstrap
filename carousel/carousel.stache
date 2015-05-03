@@ -1,0 +1,29 @@
+<div can-mouseenter="onMouseenter"
+     can-mouseleave="onMouseleave"
+     class="carousel slide">
+
+  <can-import from="slide/slide"/>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <content></content>
+  </div>
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+   {{#slides}}
+      <li can-click="onIndicatorClick" data-ndx="{{ slideNumber }}" class="{{#if active}}active{{/if}}"></li>
+   {{/slides}}
+  </ol>
+
+  <!-- Controls -->
+  <button class="left carousel-control" role="button" can-click="{prev}">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button class="right carousel-control" role="button" can-click="{next}">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
+
+</div>

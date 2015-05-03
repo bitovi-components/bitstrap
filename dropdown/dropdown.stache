@@ -1,0 +1,12 @@
+<div class="dropdown{{#if visible}} open{{/if}} {{classes}}">
+{{#items.length}}
+{{getButton}}
+{{#visible}}
+<ul class="dropdown-menu dropdown-menu-{{alignment}}" role="menu" aria-labelledby="{{dropdownId}}">
+    {{#items}}
+    <li>{{getItem}}</li>
+    {{/items}}
+</ul>
+{{/visible}}
+{{/items.length}}
+</div>

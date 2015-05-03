@@ -1,0 +1,11 @@
+{{#visible}}
+<div id="{{popoverId}}" class="popover {{placement}} fade {{#visible}}in{{/visible}}" style="display:block;" {{positionPopover}}>
+    <div class="arrow"></div>
+    {{#popoverTitle}}
+    <h3 class="popover-title">{{popoverTitle}}</h3>
+    {{/popoverTitle}}
+    <div class="popover-content">
+        <content></content>
+    </div>
+</div>
+{{/visible}}

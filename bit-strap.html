@@ -1,5 +1,178 @@
-<script type='text/stache' can-autorender>
-  <can-import from="tooltip/tooltip"/>
-</script>
-<script src="./node_modules/steal/steal.js" 
-		main="can/view/autorender/"></script>
+<!DOCTYPE html>
+<html lang="en" ng-app="ui.bootstrap.demo" id="top">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>can.Component for Bootstrap</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" ng-click="isCollapsed = !isCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand visible-xs" href="#">UI Bootstrap</a>
+      </div>
+      <nav class="hidden-xs">
+        <ul class="nav navbar-nav">
+          <a href="#top" role="button" class="navbar-brand">
+            UI Bootstrap
+          </a>
+          <li class="dropdown" dropdown>
+              <a role="button" class="dropdown-toggle" dropdown-toggle>
+                Directives <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#accordion">Accordion</a></li><li><a href="#alert">Alert</a></li><li><a href="#buttons">Buttons</a></li><li><a href="#carousel">Carousel</a></li><li><a href="#collapse">Collapse</a></li><li><a href="#datepicker">Datepicker</a></li><li><a href="#dropdown">Dropdown</a></li><li><a href="#modal">Modal</a></li><li><a href="#pagination">Pagination</a></li><li><a href="#popover">Popover</a></li><li><a href="#progressbar">Progressbar</a></li><li><a href="#rating">Rating</a></li><li><a href="#tabs">Tabs</a></li><li><a href="#timepicker">Timepicker</a></li><li><a href="#tooltip">Tooltip</a></li><li><a href="#typeahead">Typeahead</a></li>
+              </ul>
+          </li>
+          <li><a href="#getting_started">Getting started</a></li>
+        </ul>
+      </nav>
+      <nav class="visible-xs" collapse="!isCollapsed">
+        <ul class="nav navbar-nav">
+          <li><a href="#getting_started" ng-click="isCollapsed = !isCollapsed">Getting started</a></li>
+          <li><a href="#directives_small" ng-click="isCollapsed = !isCollapsed">Directives</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="header-placeholder"></div>
+<div role="main">
+  <header class="bs-header text-center" id="overview">
+      <div class="container">
+        <h1>
+          UI Bootstrap
+        </h1>
+
+        <p>Bootstrap components written in pure <a href="http://angularjs.org">AngularJS</a> by the <a href="http://angular-ui.github.io">AngularUI Team</a></p>
+
+        <p>
+          <a class="btn btn-outline-inverse btn-lg" href="https://github.com/angular-ui/bootstrap"><i class="icon-github"></i>Code on Github</a>
+          <button type="button" class="btn btn-outline-inverse btn-lg" ng-click="showDownloadModal()">
+              <i class="glyphicon glyphicon-download-alt"></i> Download <small>(0.12.1)</small>
+          </button>
+          <button type="button" class="btn btn-outline-inverse btn-lg" ng-click="showBuildModal()"><i class="glyphicon glyphicon-wrench"></i> Create a Build</button>
+        </p>
+      </div>
+      <div class="bs-social container">
+        <ul class="bs-social-buttons">
+          <li>
+            <iframe src="//ghbtns.com/github-btn.html?user=angular-ui&repo=bootstrap&type=watch&count=true"
+                      allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+          </li>
+          <li>
+            <iframe src="//ghbtns.com/github-btn.html?user=angular-ui&repo=bootstrap&type=fork&count=true"
+                      allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+          </li>
+          <li>
+            <a href="https://twitter.com/share" class="twitter-share-button"
+               data-hashtags="angularjs">Tweet</a>
+            <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");</script>
+          </li>
+          <li>
+            <!-- Place this tag where you want the +1 button to render. -->
+            <div class="g-plusone" data-size="medium"></div>
+
+            <!-- Place this tag after the last +1 button tag. -->
+            <script type="text/javascript">
+                (function () {
+                    var po = document.createElement('script');
+                    po.type = 'text/javascript';
+                    po.async = true;
+                    po.src = 'https://apis.google.com/js/plusone.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(po, s);
+                })();
+            </script>
+          </li>
+        </ul>
+      </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <section class="bs-sidebar visible-xs" id="directives_small">
+          <ul class="nav bs-sidenav">
+            <li><a href="#"><strong>Directives</strong></a></li>
+            <li><a href="#accordion">Accordion</a></li>
+            <li><a href="#alert">Alert</a></li>
+            <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#carousel">Carousel</a></li>
+            <li><a href="#collapse">Collapse</a></li>
+            <li><a href="#datepicker">Datepicker</a></li>
+            <li><a href="#dropdown">Dropdown</a></li>
+            <li><a href="#modal">Modal</a></li>
+            <li><a href="#pagination">Pagination</a></li>
+            <li><a href="#popover">Popover</a></li>
+            <li><a href="#progressbar">Progressbar</a></li>
+            <li><a href="#rating">Rating</a></li>
+            <li><a href="#tabs">Tabs</a></li>
+            <li><a href="#timepicker">Timepicker</a></li>
+            <li><a href="#tooltip">Tooltip</a></li>
+            <li><a href="#typeahead">Typeahead</a></li>
+          </ul>
+        </section>
+
+        <section id="getting_started">
+          <div class="page-header">
+            <h1>Getting started</h1>
+          </div>
+          <h3>Dependencies</h3>
+          <p>
+            This repository contains a set of <strong>native AngularJS directives</strong> based on
+            Bootstrap's markup and CSS. As a result no dependency on jQuery or Bootstrap's
+            JavaScript is required. The <strong>only required dependencies</strong> are:
+          </p>
+          <ul>
+            <li><a href="http://angularjs.org" target="_blank">AngularJS</a> (requires AngularJS 1.2.x, tested with 1.2.16)</li>
+            <li><a href="http://getbootstrap.com" target="_blank">Bootstrap CSS</a> (tested with version 3.1.1).
+              This version of the library (0.12.1) works only with Bootstrap CSS in version 3.x.
+              0.8.0 is the last version of this library that supports Bootstrap CSS in version 2.3.x.
+            </li>
+          </ul>
+          <h3>Files to download</h3>
+          <p>
+            Build files for all directives are distributed in several flavours: minified for production usage, un-minified
+            for development, with or without templates. All the options are described and can be
+            <a href="https://github.com/angular-ui/bootstrap/tree/gh-pages">downloaded from here</a>.
+          </p>
+          <p>Alternativelly, if you are only interested in a subset of directives, you can
+            <a ng-click="showBuildModal()">create your own build</a>.
+          </p>
+          <p>Whichever method you choose the good news that the overall size of a download is very small:
+             &lt;20kB for all directives (~5kB with gzip compression!)</p>
+          <h3>Installation</h3>
+          <p>As soon as you've got all the files downloaded and included in your page you just need to declare a dependency on the <code>ui.bootstrap</code> <a href="http://docs.angularjs.org/guide/module">module</a>:<br>
+            <pre><code>angular.module('myModule', ['ui.bootstrap']);</code></pre>
+          </p>
+          <p>You can fork one of the plunkers from this page to see a working example of what is described here.</p>
+          <h3>CSS</h3>
+          <p>Original Bootstrap's CSS depends on empty <code>href</code> attributes to style cursors for several components (pagination, tabs etc.).
+          But in AngularJS adding empty <code>href</code> attributes to link tags will cause unwanted route changes. This is why we need to remove empty <code>href</code> attributes from directive templates and as a result styling is not applied correctly. The remedy is simple, just add the following styling to your application: <pre><code>.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }</code></pre>
+          </p>
+          <h3>FAQ</h3>
+          <p>Please check <a href="https://github.com/angular-ui/bootstrap/wiki/FAQ" target="_blank">our FAQ section</a> for common problems / solutions.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
