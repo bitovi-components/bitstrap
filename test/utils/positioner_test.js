@@ -41,9 +41,7 @@ QUnit.test('top', function () {
     positioner = new Positioner( $('.wrap', $('#qunit-fixture') ), opts );
     
     positioner.repositionTarget();
-    
-    //deepEqual($target.offset(), {top:-10010, left:-9955}, 'Repositions properly above trigger.');
-    ok(true);
+    deepEqual($target.offset(), {top:-10020, left:-9955}, 'Repositions properly above trigger.');
 });
 
 QUnit.test('right', function () {
@@ -56,9 +54,8 @@ QUnit.test('right', function () {
     positioner = new Positioner( $('.wrap', $('#qunit-fixture') ), opts );
     
     positioner.repositionTarget();
-    
-    //deepEqual($target.offset(), {top:-9955, left:-9900}, 'Repositions properly right of trigger.');
-    ok(true);
+    console.log($target.offset());
+    deepEqual($target.offset(), {top:-9955, left:-9885}, 'Repositions properly right of trigger.');
     
 });
 
@@ -73,9 +70,8 @@ QUnit.test('bottom', function () {
     
     positioner.repositionTarget();
     
-    //deepEqual($target.offset(), {top:-9900, left:-9955}, 'Repositions properly below trigger.');
-    ok(true);
-    
+    console.log($target.offset());
+    deepEqual($target.offset(), {top:-9888, left:-9955}, 'Repositions properly below trigger.');
 });
 
 QUnit.test('left', function () {
@@ -89,7 +85,7 @@ QUnit.test('left', function () {
     
     positioner.repositionTarget();
     
-    //deepEqual($target.offset(), {top:-9955, left:-10010}, 'Repositions properly left of trigger.');
-    ok(true);
+    console.log($target.offset());
+    deepEqual($target.offset(), {top:-9955, left:-10012}, 'Repositions properly left of trigger.');
     
 });
