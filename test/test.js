@@ -5,6 +5,7 @@ import "./carousel_test";
 import "./collapse_test";
 import "./dropdown_test";
 import "./modal_test";
+import "./panel_test";
 import "./popover_test";
 import "./scrollspy_test";
 import "./tab_test";
