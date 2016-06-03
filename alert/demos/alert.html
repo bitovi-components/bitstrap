@@ -1,0 +1,41 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    .container{
+        margin: 5rem auto;
+    }
+</style>
+
+<script type='text/stache' id="demo" can-autorender>
+<can-import from="alert/alert"/>
+<div class="container">
+    <bitstrap-alert severity="info" 
+        visible="{visibleA}" 
+        alert-title="Non Dismissable alert"
+        is-dismissable="false">This alert cannot be dismissed!</bitstrap-alert>
+        
+    <bitstrap-alert severity="danger" 
+        visible="{visibleB}" 
+        alert-title="Danger, Will Robinson, Danger!">You can dismiss this alert</bitstrap-alert>
+        
+    <button class="btn" can-click="toggle">Toggle Alerts</button>
+</div>
+</script>
+
+<script src="../../node_modules/steal/steal.js" 
+		main="can/view/autorender/" id="demo-source">
+import can from 'can';
+
+can.$('#demo').viewModel({
+    visibleA:false,
+    visibleB:false,
+    toggle: function(){
+        this.attr('visibleA', !this.attr('visibleA'));
+        this.attr('visibleB', !this.attr('visibleB'));
+    }
+});
+</script>
+
+<script>
+    window.DEMO_HTML = document.getElementById("demo").innerHTML.replace('<can-import from="alert/alert"/>', '');
+	window.DEMO_SOURCE = document.getElementById("demo-source").innerHTML;
+</script>
