@@ -12,12 +12,12 @@ QUnit.module("bit-strap-dropdown view model", {
 	}
 });
 
-QUnit.test("basics", function(){
-	equal( vm.attr('items').length, 0, 'Items is empty array');
-	equal( vm.attr('visible'), false, 'Visible defaults to false');
-	equal( vm.attr('buttonName'), '', 'Button');
-	equal( vm.attr('dropdownId').indexOf('dropdown'), 0, 'Dropdow ID default is prefixed with dropdown');
-	equal( vm.attr('alignment'),'left', 'Alignment defualts to left.');
+QUnit.test("basics", function(assert) {
+	assert.equal( vm.attr('items').length, 0, 'Items is empty array');
+	assert.equal( vm.attr('visible'), false, 'Visible defaults to false');
+	assert.equal( vm.attr('buttonName'), '', 'Button');
+	assert.equal( vm.attr('dropdownId').indexOf('dropdown'), 0, 'Dropdow ID default is prefixed with dropdown');
+	assert.equal( vm.attr('alignment'),'left', 'Alignment defualts to left.');
 });
 
 
@@ -34,16 +34,16 @@ QUnit.module("bit-strap-dropdown component",{
 	}
 });
 
-QUnit.test("basics", function(){
-	equal( $component.find('.dropdown').is(':visible'), true, 'Dropdown container is visible' );
-	equal( $component.find('.dropdown-toggle').is(':visible'), true, 'Dropdown button is visible' );
-	equal( $component.find('.dropdown-menu').is(':visible'), false, 'Dropdown menu options are not visible' );
+QUnit.test("basics", function(assert) {
+	assert.equal( $component.find('.dropdown').is(':visible'), true, 'Dropdown container is visible' );
+	assert.equal( $component.find('.dropdown-toggle').is(':visible'), true, 'Dropdown button is visible' );
+	assert.equal( $component.find('.dropdown-menu').is(':visible'), false, 'Dropdown menu options are not visible' );
 });
 
-QUnit.test('toggle', function () {
-	equal( $component.find('.dropdown-menu').is(':visible'), false, 'Dropdown menu options are hidden' );
+QUnit.test('toggle', function(assert) {
+	assert.equal( $component.find('.dropdown-menu').is(':visible'), false, 'Dropdown menu options are hidden' );
 	$component.find('.dropdown-toggle').click();
-	equal( $component.find('.dropdown-menu').is(':visible'), true, 'Dropdown menu options is visible' );
-	equal( $component.find('.dropdown-menu-item').length, 2, 'Dropdown menu renders all items' );
-	equal( $component.find('.dropdown-menu-item').eq(0).text(), 'test', 'Dropdown menu item renders text' );
+	assert.equal( $component.find('.dropdown-menu').is(':visible'), true, 'Dropdown menu options is visible' );
+	assert.equal( $component.find('.dropdown-menu-item').length, 2, 'Dropdown menu renders all items' );
+	assert.equal( $component.find('.dropdown-menu-item').eq(0).text(), 'test', 'Dropdown menu item renders text' );
 });

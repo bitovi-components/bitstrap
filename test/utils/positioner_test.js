@@ -15,7 +15,7 @@ QUnit.module("calculate offset",{
 	}
 });
 
-QUnit.test("basics", function () {
+QUnit.test("basics", function(assert) {
     
     opts = {
         trigger: '.test',
@@ -24,14 +24,14 @@ QUnit.test("basics", function () {
     positioner = new Positioner( $('.wrap', $('#qunit-fixture') ), opts );
     
     //deepEqual(positioner.options.buffer, {bottom:0,left:0, right:0, top:0}, 'Buffer uses default when not passed.');
-    deepEqual(positioner.getOffset($('#test')),{left:null, top: null}, 'getOffset returns default object when object does not exist');
-    deepEqual(positioner.getOffset($trigger),$trigger.offset(), 'getOffset returns correct offset');
+    assert.deepEqual(positioner.getOffset($('#test')),{left:null, top: null}, 'getOffset returns default object when object does not exist');
+    assert.deepEqual(positioner.getOffset($trigger),$trigger.offset(), 'getOffset returns correct offset');
     
-    deepEqual(positioner.getDimensions($('#test')),{height: null, width: null}, 'getDimensions returns default object when object does not exist');
-    deepEqual(positioner.getDimensions($target),{height: 10, width: 10}, 'getDimensions returns correct height and width');
+    assert.deepEqual(positioner.getDimensions($('#test')),{height: null, width: null}, 'getDimensions returns default object when object does not exist');
+    assert.deepEqual(positioner.getDimensions($target),{height: 10, width: 10}, 'getDimensions returns correct height and width');
 });
 
-QUnit.test('top', function () {
+QUnit.test('top', function(assert) {
     
     opts = {
         trigger: '.test',
@@ -41,10 +41,10 @@ QUnit.test('top', function () {
     positioner = new Positioner( $('.wrap', $('#qunit-fixture') ), opts );
     
     positioner.repositionTarget();
-    deepEqual($target.offset(), {top:-10020, left:-9955}, 'Repositions properly above trigger.');
+    assert.deepEqual($target.offset(), {top:-10020, left:-9955}, 'Repositions properly above trigger.');
 });
 
-QUnit.test('right', function () {
+QUnit.test('right', function(assert) {
     
     opts = {
         trigger: '.test',
@@ -55,11 +55,11 @@ QUnit.test('right', function () {
     
     positioner.repositionTarget();
     console.log($target.offset());
-    deepEqual($target.offset(), {top:-9955, left:-9885}, 'Repositions properly right of trigger.');
+    assert.deepEqual($target.offset(), {top:-9955, left:-9885}, 'Repositions properly right of trigger.');
     
 });
 
-QUnit.test('bottom', function () {
+QUnit.test('bottom', function(assert) {
     
     opts = {
         trigger: '.test',
@@ -71,10 +71,10 @@ QUnit.test('bottom', function () {
     positioner.repositionTarget();
     
     console.log($target.offset());
-    deepEqual($target.offset(), {top:-9888, left:-9955}, 'Repositions properly below trigger.');
+    assert.deepEqual($target.offset(), {top:-9888, left:-9955}, 'Repositions properly below trigger.');
 });
 
-QUnit.test('left', function () {
+QUnit.test('left', function(assert) {
     
     opts = {
         trigger: '.test',
@@ -86,6 +86,6 @@ QUnit.test('left', function () {
     positioner.repositionTarget();
     
     console.log($target.offset());
-    deepEqual($target.offset(), {top:-9955, left:-10012}, 'Repositions properly left of trigger.');
+    assert.deepEqual($target.offset(), {top:-9955, left:-10012}, 'Repositions properly left of trigger.');
     
 });

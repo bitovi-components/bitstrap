@@ -12,27 +12,27 @@ QUnit.module("bitstrap-alert view model", {
 	}
 });
 
-QUnit.test("basics", function () {
-	equal( vm.attr('severity'), 'info', 'Severity defaults to "info"');
-	equal( vm.attr('isDismissable'), true, 'isDismissable defaults to true');
-	equal( vm.attr('visible'), false, 'Visible defaults to false');
-	equal( vm.attr('alertBody'), '', 'alertBody defaults to empty string');
-	equal( vm.attr('useContentTag'), true, 'useContentTag defaults to true');
-	equal( vm.attr('alertTitle'), '', 'alertTitle defaults to empty string');
+QUnit.test("basics", function(assert) {
+	assert.equal( vm.attr('severity'), 'info', 'Severity defaults to "info"');
+	assert.equal( vm.attr('isDismissable'), true, 'isDismissable defaults to true');
+	assert.equal( vm.attr('visible'), false, 'Visible defaults to false');
+	assert.equal( vm.attr('alertBody'), '', 'alertBody defaults to empty string');
+	assert.equal( vm.attr('useContentTag'), true, 'useContentTag defaults to true');
+	assert.equal( vm.attr('alertTitle'), '', 'alertTitle defaults to empty string');
 });
 
-QUnit.test('toggling', function () {
-	equal( vm.attr('visible'), false, 'Visible defaults to false');
+QUnit.test('toggling', function(assert) {
+	assert.equal( vm.attr('visible'), false, 'Visible defaults to false');
 	vm.toggle();
-	equal( vm.attr('visible'), true, 'Visible updates to true');
+	assert.equal( vm.attr('visible'), true, 'Visible updates to true');
 });
 
-QUnit.test('updating', function () {
-	equal( vm.attr('alertBody'), '', 'alertBody defaults to empty string');
-	equal( vm.attr('useContentTag'), true, 'useContentTag defaults to true');
+QUnit.test('updating', function(assert) {
+	assert.equal( vm.attr('alertBody'), '', 'alertBody defaults to empty string');
+	assert.equal( vm.attr('useContentTag'), true, 'useContentTag defaults to true');
 	vm.update("TEST");
-	equal( vm.attr('alertBody').trim(), 'TEST', 'alertBody udpates');
-	equal( vm.attr('useContentTag'), false, 'useContentTag is now false');
+	assert.equal( vm.attr('alertBody').trim(), 'TEST', 'alertBody udpates');
+	assert.equal( vm.attr('useContentTag'), false, 'useContentTag is now false');
 });
 
 QUnit.module("bitstrap-alert component",{
@@ -44,21 +44,21 @@ QUnit.module("bitstrap-alert component",{
 	}
 });
 
-QUnit.test('renders', function () {
-	equal( $component.length, 1, 'Component rendered');
-	equal( $component.find('.alert').is(':visible'), false, 'alert is hidden' );
+QUnit.test('renders', function(assert) {
+	assert.equal( $component.length, 1, 'Component rendered');
+	assert.equal( $component.find('.alert').is(':visible'), false, 'alert is hidden' );
 });
 
-QUnit.test('toggling', function () {
-	equal( $component.find('.alert').is(':visible'), false, 'alert is hidden' );
+QUnit.test('toggling', function(assert) {
+	assert.equal( $component.find('.alert').is(':visible'), false, 'alert is hidden' );
 	vm.toggle();
 	
-	equal( $component.find('.alert').is(':visible'), true, 'tooltip is visible' );
+	assert.equal( $component.find('.alert').is(':visible'), true, 'tooltip is visible' );
 });
 
-QUnit.test('updating', function () {
+QUnit.test('updating', function(assert) {
 	vm.toggle();
-	equal( $component.find('.alert-body').text().trim(), 'HELLO', 'Alert has correct content.' );
+	assert.equal( $component.find('.alert-body').text().trim(), 'HELLO', 'Alert has correct content.' );
 	vm.update('WORLD');
-	equal( $component.find('.alert-body').text().trim(), 'WORLD', 'Alert updates with new content.' );
+	assert.equal( $component.find('.alert-body').text().trim(), 'WORLD', 'Alert updates with new content.' );
 });
