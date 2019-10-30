@@ -6,18 +6,18 @@ import $ from "jquery";
 
 QUnit.module("bit-strap-affix view model");
 
-QUnit.test("basics", function(){
-	QUnit.ok(true, 'works');
+QUnit.test("basics", function(assert) {
+	assert.ok(true, 'works');
 });
 
 var template = can.stache("<div></div>");
 
 QUnit.module("bit-strap-affix component",{
-	setup: function(){
+	beforeEach: function(assert) {
 		$("#qunit-fixture").append(template());
 	}
 });
 
-QUnit.test("basics", function(){
-	QUnit.ok(true, 'works');
+QUnit.test("basics", function(assert) {
+	assert.ok(true, 'works');
 });

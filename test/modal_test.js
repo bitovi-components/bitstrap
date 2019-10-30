@@ -12,12 +12,12 @@ QUnit.module("bitstrap-modal view model", {
 	}
 });
 
-QUnit.test("basics", function () {
-	equal( vm.attr('visible'), false, 'Visible defaults to false');
-	equal( vm.attr('modalTitle'), '', 'Title defaults to empty string.');
-	equal( vm.attr('modalSize'), '', 'Size defaults to empty string.');
-	equal( vm.attr('isModal'), true, 'Is modal by default.');
-	equal( vm.attr('isHidden'), true, 'isHidden flips visible');
+QUnit.test("basics", function(assert) {
+	assert.equal( vm.attr('visible'), false, 'Visible defaults to false');
+	assert.equal( vm.attr('modalTitle'), '', 'Title defaults to empty string.');
+	assert.equal( vm.attr('modalSize'), '', 'Size defaults to empty string.');
+	assert.equal( vm.attr('isModal'), true, 'Is modal by default.');
+	assert.equal( vm.attr('isHidden'), true, 'isHidden flips visible');
 });
 
 
@@ -30,28 +30,28 @@ QUnit.module("bitstrap-modal component",{
 	}
 });
 
-QUnit.test('renders', function () {
-	equal( $component.length, 1, 'Component rendered');
-	equal( $component.find('.modal').is(':visible'), false, 'Modal is hidden' );
+QUnit.test('renders', function(assert) {
+	assert.equal( $component.length, 1, 'Component rendered');
+	assert.equal( $component.find('.modal').is(':visible'), false, 'Modal is hidden' );
 });
 
-QUnit.test('toggles', function () {
+QUnit.test('toggles', function(assert) {
 	vm.attr('visible', true);
-	equal( $component.find('.modal').is(':visible'), true, 'Modal is visible' );
-	equal( $component.find('.modal-backdrop').is(':visible'), true, 'Modal is visible' );
-	equal( $('body').hasClass('modal-open'), true, 'Class added to body' );
+	assert.equal( $component.find('.modal').is(':visible'), true, 'Modal is visible' );
+	assert.equal( $component.find('.modal-backdrop').is(':visible'), true, 'Modal is visible' );
+	assert.equal( $('body').hasClass('modal-open'), true, 'Class added to body' );
 	vm.attr('visible', false);
-	equal( $component.find('.modal').is(':visible'), false, 'Modal is hidden' );
-	equal( $component.find('.modal-backdrop').is(':visible'), false, 'Modal is visible' );
-	equal( $('body').hasClass('modal-open'), false, 'Class removed from body' );
+	assert.equal( $component.find('.modal').is(':visible'), false, 'Modal is hidden' );
+	assert.equal( $component.find('.modal-backdrop').is(':visible'), false, 'Modal is visible' );
+	assert.equal( $('body').hasClass('modal-open'), false, 'Class removed from body' );
 });
 
-QUnit.test('header', function () {
-	equal( $component.find('.modal-header').length, 0, 'Header is not rendered' );
+QUnit.test('header', function(assert) {
+	assert.equal( $component.find('.modal-header').length, 0, 'Header is not rendered' );
 	
 	vm.attr('modalTitle', 'test');
 	vm.attr('visible', true);
-	equal( $component.find('.modal-header').length, 1, 'Header is rendered' );
-	equal( $component.find('.modal-header').is(':visible'), true, 'Header is visible' );
-	equal( $component.find('.modal-title').text(), 'test', 'Modal title is rendered' );
+	assert.equal( $component.find('.modal-header').length, 1, 'Header is rendered' );
+	assert.equal( $component.find('.modal-header').is(':visible'), true, 'Header is visible' );
+	assert.equal( $component.find('.modal-title').text(), 'test', 'Modal title is rendered' );
 });

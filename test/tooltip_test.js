@@ -12,18 +12,18 @@ QUnit.module("bitstrap-tooltip view model", {
 	}
 });
 
-QUnit.test("basics", function () {
-	equal( vm.attr('visible'), false, 'Visible defaults to false');
-	equal( vm.attr('tooltipId').indexOf('tooltip'), 0, 'Default Id starts with tooltip');
-	equal( vm.attr('placement'), 'top', 'Default placement is top');
+QUnit.test("basics", function(assert) {
+	assert.equal( vm.attr('visible'), false, 'Visible defaults to false');
+	assert.equal( vm.attr('tooltipId').indexOf('tooltip'), 0, 'Default Id starts with tooltip');
+	assert.equal( vm.attr('placement'), 'top', 'Default placement is top');
 });
 
-QUnit.test('toggling', function () {
-	equal( vm.attr('visible'), false, 'Visible defaults to false');
+QUnit.test('toggling', function(assert) {
+	assert.equal( vm.attr('visible'), false, 'Visible defaults to false');
 	vm.toggle();
-	equal( vm.attr('visible'), true, 'Visible updates to true');
+	assert.equal( vm.attr('visible'), true, 'Visible updates to true');
 	vm.toggle(true);
-	equal( vm.attr('visible'), true, 'Visible stays as true');
+	assert.equal( vm.attr('visible'), true, 'Visible stays as true');
 });
 
 QUnit.module("bitstrap-tooltip component",{
@@ -35,14 +35,14 @@ QUnit.module("bitstrap-tooltip component",{
 	}
 });
 
-QUnit.test('renders', function () {
-	equal( $component.length, 1, 'Component rendered');
-	equal( $component.find('.tooltip').is(':visible'), false, 'tooltip is hidden' );
+QUnit.test('renders', function(assert) {
+	assert.equal( $component.length, 1, 'Component rendered');
+	assert.equal( $component.find('.tooltip').is(':visible'), false, 'tooltip is hidden' );
 });
 
-QUnit.test('toggling', function () {
-	equal( $component.find('.tooltip').is(':visible'), false, 'tooltip is hidden' );
+QUnit.test('toggling', function(assert) {
+	assert.equal( $component.find('.tooltip').is(':visible'), false, 'tooltip is hidden' );
 	$component.find('.tooltip-trigger').trigger('mouseover');
 	
-	equal( $component.find('.tooltip').is(':visible'), true, 'tooltip is visible' );
+	assert.equal( $component.find('.tooltip').is(':visible'), true, 'tooltip is visible' );
 });

@@ -12,10 +12,10 @@ QUnit.module("bitstrap-panel view model", {
 	}
 });
 
-QUnit.test("basics", function () {
-	equal( vm.attr('panelTitle'), '', 'Title defaults to empty string');
-	equal( vm.attr('panelFooter'), '', 'Footer defaults to empty string');
-	equal( vm.attr('classes'), 'panel-default', 'Panel class list defaults to \'panel-default\'');
+QUnit.test("basics", function(assert) {
+	assert.equal( vm.attr('panelTitle'), '', 'Title defaults to empty string');
+	assert.equal( vm.attr('panelFooter'), '', 'Footer defaults to empty string');
+	assert.equal( vm.attr('classes'), 'panel-default', 'Panel class list defaults to \'panel-default\'');
 });
 
 QUnit.module("bitstrap-panel component",{
@@ -27,11 +27,11 @@ QUnit.module("bitstrap-panel component",{
 	}
 });
 
-QUnit.test('renders', function () {
-	equal( $component.length, 1, 'Component rendered');
-	equal( $component.find('.panel-body').is(':visible'), true, 'Panel body is visible' );
-	equal( $component.find('.panel-body').text().trim(), 'TEST', 'Panel body content renders.' );
-	equal( $component.find('.panel-heading').text().trim(), 'HEYO', 'Panel header content renders.' );
-	equal( $component.find('.panel-footer').text(), 'AUSTIN', 'Panel footer content renders.' );
-	equal( $component.find('.panel').hasClass('panel-warning'), true, 'Panel gets correct contextual class.' );
+QUnit.test('renders', function(assert) {
+	assert.equal( $component.length, 1, 'Component rendered');
+	assert.equal( $component.find('.panel-body').is(':visible'), true, 'Panel body is visible' );
+	assert.equal( $component.find('.panel-body').text().trim(), 'TEST', 'Panel body content renders.' );
+	assert.equal( $component.find('.panel-heading').text().trim(), 'HEYO', 'Panel header content renders.' );
+	assert.equal( $component.find('.panel-footer').text(), 'AUSTIN', 'Panel footer content renders.' );
+	assert.equal( $component.find('.panel').hasClass('panel-warning'), true, 'Panel gets correct contextual class.' );
 });
